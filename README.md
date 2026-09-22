@@ -8,16 +8,25 @@ payment service (gateway-agnostic, Stripe on AWS Lambda + DynamoDB, exactly-once
 processing), an Ed25519 offline licensing system across four microservices, and workflow
 automation plus AI-agent tooling — full-stack.
 
-Most of my professional work lives in private company repositories. The four
-libraries below are clean-room, from-scratch versions of problems I solved
-there — built so the reasoning is public even where the code cannot be.
+Most of my professional work lives in private company repositories. What is
+public here is clean-room, from-scratch: one product and the four libraries
+extracted from it, built so the reasoning is public even where the code cannot be.
 
 ## Selected public work
 
-Four libraries, each solving one problem I have shipped in production, rebuilt
-from scratch so the reasoning is public. Every one has a README that explains
-the design decisions, a test suite that fails if a guarantee is removed, and
-CI that runs it.
+One product and the four libraries extracted from it. Every repo has a README
+that explains the design decisions, a test suite that fails if a guarantee is
+removed, and CI that runs it.
+
+**[digital-marketplace](https://github.com/tientran1234/digital-marketplace)** —
+A marketplace for digital products where every listing comes with an assistant
+that has actually read it. Stripe one-time purchases and memberships through
+one idempotent webhook path with forward-only state machines; product review
+and refunds as durable workflows that wait days for a human; RAG on pgvector
+with structure-aware chunking and MMR re-ranking; a traced Claude agent gated
+by plan and quota; a self-hosted edition unlocked by a signed license. Five
+end-to-end flows tested on real Postgres in CI. English and Vietnamese.
+`Next.js 15` `Prisma` `pgvector` `Stripe` `agent-runtime` `durable-workflow`
 
 **[agent-runtime](https://github.com/tientran1234/agent-runtime)** — The part of
 an LLM agent that is not the model: a bounded tool loop where no tool runs on
